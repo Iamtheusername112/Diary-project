@@ -35,20 +35,20 @@ function DiaryList({ entries, openEntryModal, deleteEntry }) {
   };
 
   return (
-    <div className="diary-list">
+    <div className="diary-list grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
       {sortedEntries.length === 0 ? (
-        <p className="text-center">No diary entries yet.</p>
+        <p className="text-center col-span-full">No diary entries yet.</p>
       ) : (
         sortedEntries.map((entry) => (
           <div
             key={entry.id}
-            className="entry bg-gray-100 p-4 mb-2 rounded shadow cursor-pointer"
+            className="entry bg-gray-100 p-4 mb-2  rounded  shadow-lg cursor-pointer"
             onClick={() => openDiaryModal(entry)} // Open Diary Modal when card is clicked
           >
             <img
               src={entry.image}
               alt="Preview"
-              className="w-full h-32 object-cover mb-2 rounded"
+              className="w-full h-40 object-cover mb-7 rounded"
             />
             <h2 className="text-lg font-bold">{entry.title}</h2>
             <p className="text-sm text-gray-600">{entry.date}</p>
