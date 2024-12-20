@@ -59,13 +59,13 @@ function AddEntryModal({ addEntry, closeModal }) {
             <button
               type="button"
               onClick={closeModal}
-              className="mr-2 bg-gray-300 text-black px-4 py-2 rounded"
+              className="mr-2 bg-gray-300 text-black px-4 py-2 rounded-full flex items-center justify-between"
             >
               Cancel
             </button>
             <button
               type="submit"
-              className="bg-blue-500 text-white px-4 py-2 rounded"
+              className="bg-blue-500 text-white px-4 py-2 rounded-full flex items-center justify-between"
             >
               Add Entry
             </button>

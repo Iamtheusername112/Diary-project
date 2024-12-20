@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import DiaryList from "./components/DiaryList";
 import DiaryModal from "./components/DiaryModal";
 import AddEntryModal from "./components/AddEntryModal";
+import { PlusCircleIcon } from "@heroicons/react/20/solid";
 
 function App() {
   const [entries, setEntries] = useState(() => {
@@ -48,11 +49,13 @@ function App() {
   return (
     <div className="app-container p-4 max-w-2xl mx-auto">
       <h1 className="text-2xl font-bold text-center mb-4">Personal Diary</h1>
+      {/* <Header /> */}
       <button
         onClick={openAddEntryModal}
-        className="bg-green-500 text-white px-4 py-2 mb-4 rounded"
+        className="bg-blue-500 text-white px-4 py-2 rounded-full flex items-center justify-between"
       >
-        Add Entry
+        <span>Add Entry</span>
+        <PlusCircleIcon className="h-5 w-5 ml-2" />
       </button>
       <DiaryList
         entries={entries}
