@@ -14,7 +14,7 @@ function DiaryList({ entries, openEntryModal, deleteEntry }) {
           <div
             key={entry.id}
             className="entry bg-gray-100 p-4 mb-2 rounded shadow cursor-pointer"
-            onClick={() => openEntryModal(entry)} // Open the entry details modal
+            onClick={() => openEntryModal(entry)} // Open DiaryModal with the entry data
           >
             <img
               src={entry.image}
@@ -23,11 +23,10 @@ function DiaryList({ entries, openEntryModal, deleteEntry }) {
             />
             <h2 className="text-lg font-bold">{entry.title}</h2>
             <p className="text-sm text-gray-600">{entry.date}</p>
-            {/* Add a delete button */}
             <button
               onClick={(e) => {
-                e.stopPropagation(); // Prevent the modal from opening when delete is clicked
-                deleteEntry(entry.id); // Call deleteEntry when button is clicked
+                e.stopPropagation(); // Prevent opening the DiaryModal
+                deleteEntry(entry.id); // Delete entry on button click
               }}
               className="bg-red-500 text-white px-4 py-2 mt-2 rounded"
             >

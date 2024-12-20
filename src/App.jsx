@@ -1,15 +1,14 @@
 import { useState, useEffect } from "react";
-// import PropTypes from "prop-types";
-// import DiaryForm from "./components/DiaryForm";
-import DiaryList from "./components/DiaryEntryList";
-import DiaryModal from "./components/EntryModal";
-import AddEntryModal from "./components/EntryModal";
+import DiaryList from "./components/DiaryList";
+import DiaryModal from "./components/DiaryModal";
+import AddEntryModal from "./components/AddEntryModal";
 
 function App() {
   const [entries, setEntries] = useState(() => {
     const savedEntries = localStorage.getItem("diaryEntries");
     return savedEntries ? JSON.parse(savedEntries) : [];
   });
+
   const [selectedEntry, setSelectedEntry] = useState(null);
   const [isAddEntryModalOpen, setIsAddEntryModalOpen] = useState(false);
 
@@ -31,19 +30,19 @@ function App() {
   };
 
   const openEntryModal = (entry) => {
-    setSelectedEntry(entry); // Set the selected entry to open its details in a modal
+    setSelectedEntry(entry); // Open the DiaryModal and pass the entry
   };
 
   const closeEntryModal = () => {
-    setSelectedEntry(null); // Close the entry modal
+    setSelectedEntry(null); // Close the DiaryModal
   };
 
   const openAddEntryModal = () => {
-    setIsAddEntryModalOpen(true); // Open the Add Entry modal
+    setIsAddEntryModalOpen(true); // Open the AddEntryModal
   };
 
   const closeAddEntryModal = () => {
-    setIsAddEntryModalOpen(false); // Close the Add Entry modal
+    setIsAddEntryModalOpen(false); // Close the AddEntryModal
   };
 
   return (
@@ -60,13 +59,9 @@ function App() {
         openEntryModal={openEntryModal}
         deleteEntry={deleteEntry}
       />
-
-      {/* Modal to show entry details */}
       {selectedEntry && (
         <DiaryModal entry={selectedEntry} closeModal={closeEntryModal} />
       )}
-
-      {/* Modal to add a new entry */}
       {isAddEntryModalOpen && (
         <AddEntryModal addEntry={addEntry} closeModal={closeAddEntryModal} />
       )}

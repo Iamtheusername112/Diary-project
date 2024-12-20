@@ -78,7 +78,7 @@ function AddEntryModal({ addEntry, closeModal }) {
 
 AddEntryModal.propTypes = {
   addEntry: PropTypes.func.isRequired,
-  closeModal: PropTypes.func.isRequired, // Add closeModal prop validation here
+  closeModal: PropTypes.func.isRequired,
 };
 
 export default AddEntryModal;
